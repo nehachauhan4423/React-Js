@@ -13,7 +13,7 @@ function App() {
   }
 
   const ref = () => {
-    setCnt(cnt % 1)
+    setCnt(0)
   }
   // const ref = () => {
   //   setCnt(cnt == 1)
