@@ -1,0 +1,22 @@
+body{
+  overflow-x:hidden;
+}
+.main-card{
+  background-color: black;
+}
+.main-card:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  transition: 0.9s;
+}
+.card-body h5{
+  font-family: serif;
+  font-weight:900;
+}
+.card-body p{
+  font-family: sans-serif;
+}
+h1{
+  font-family: cursive;
+  
+}

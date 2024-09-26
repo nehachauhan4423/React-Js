@@ -7,7 +7,7 @@ const Counter = ({no,plus,minus,reset}) =>{
             <button onClick={()=>plus()}>+</button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button>{no}</button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={()=>minus()}>-</button> <br /> <br />
-            <button onClick={()=>reset()}>Reset</button>
+            <button onClick={()=>reset()}>Reset  </button>
         </div>
     )
 }
