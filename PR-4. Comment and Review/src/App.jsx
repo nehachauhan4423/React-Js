@@ -66,7 +66,7 @@ function App() {
                   <input
                     type="text"
                     name="salary"
-                    value={item.email}
+                    value={item.salary}
                     onChange={(e) => handleChange(item.id, e)}
                     className="form-control"
                   />
