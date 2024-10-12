@@ -1,0 +1,100 @@
+.card{
+    padding: 100px;
+    position: relative;
+    font-family: 'Poppins',sans-serif;
+}
+.card-1 img,.card-2 img,.card-3 img{
+    width: 420px;
+    height: 230px;
+    border-radius: 7px;
+}
+.card1-con h5,.card2-con h5,.card3-con h5{
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    font-size: 20px;
+   font-weight:600;
+   line-height: 1.2;
+   color: #2b2b2d;
+   margin-bottom: 15px;
+}
+.card1-con h6 span,.card2-con h6 span,.card3-con h6 span{
+    font-size: 20px;
+    margin: 0 5px 0 0;
+    font-weight: bold;
+    color: #64b496;
+}
+.card1-con h6,.card2-con h6,.card3-con h6{
+    position: absolute;
+    font-size: 14px;
+    color: #7777;
+    line-height: 1.2;
+    top: 210px;
+    left: 150px;
+    font-weight:500;
+    letter-spacing: 0.5px;
+}
+.card1-con button,.card2-con button,.card3-con button{
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    width: 117px;
+    height: 40px;
+    background-color: #64b496;
+    border: 0;
+    border-radius: 5px;   
+}
+.card1-con button a,.card2-con button a,.card3-con button a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.card1-con button:hover,.card2-con button:hover,.card3-con button:hover{
+    background-color: #2b2b2d;
+    transition: 0.3s;
+}
+.card1-con button:hover a,.card2-con button:hover a,.card3-con button:hover a{
+    transition: 0.3s;
+}
+ /* card 2  */
+.card2-con h5,.card2-con button,.card2-con h6{
+    left: 585px;
+}
+.card3-con h5,.card3-con button,.card3-con h6{
+    left:1014px;
+}
+
+.card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-title-color: ;
+    --bs-card-subtitle-color: ;
+    --bs-card-border-width: var(--bs-border-width);
+    --bs-card-border-color:0;
+    --bs-card-border-radius: var(--bs-border-radius);
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(var(--bs-border-radius) -(var(--bs-border-width)));
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    color: var(--bs-body-color);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+}

@@ -1,0 +1,15 @@
+input{
+  /* margin-right: 70px;
+  padding: 4px; */
+}
+button{
+  width: 30px;
+  color: rgb(255, 255, 255);
+  background-color:rebeccapurple;
+  height: 30px;
+  font-size: 20px;
+  border: 2px solid white;
+}
+h1{
+  font-family:cursive;
+}
