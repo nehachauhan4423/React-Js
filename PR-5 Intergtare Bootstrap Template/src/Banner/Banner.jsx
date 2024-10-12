@@ -54,6 +54,9 @@ function Banner() {
             <div className="orange-img">
                 <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/4.png" alt="" srcset="" />
             </div>
+            <div className="berry-img">
+                <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/3.png" alt="" srcset="" />
+            </div>
         </div>
 
     )
