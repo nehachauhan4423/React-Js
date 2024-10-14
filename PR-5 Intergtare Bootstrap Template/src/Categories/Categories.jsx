@@ -39,15 +39,31 @@ export const Categories = () => {
                                     <div className="col-6">
                                         <div className="categories-img1">
                                             <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/categories/3.jpg" alt="" srcset="" />
-                                            <div className="categories-con1">
-                                              <h5><span>50</span>% <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                              OFF</h5>
+                                            <div className="categories-con1 d-flex">
+                                                <div className="categories-50">
+                                                    <h6>50</h6>
+                                                </div>
+                                                <div className="categeries-per">
+                                                    <span>%OFF</span>
+                                                </div>
+                                                <h4 className='text-center'>Cake</h4>
+                                                <button><a href="#">Shop Now</a></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-2">
                                         <div className="categories-img2">
                                             <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/categories/4.jpg" alt="" srcset="" />
+                                            <div className="categories-con2 d-flex">
+                                                <div className="categories-502">
+                                                    <h6>40</h6>
+                                                </div>
+                                                <div className="categeries-per2">
+                                                    <span>%OFF</span>
+                                                </div>
+                                                <h4 className='text-center'>Milk</h4>
+                                                <button><a href="#">Shop Now</a></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

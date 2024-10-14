@@ -91,8 +91,14 @@ function Footer() {
                                             <i class="fa-brands fa-instagram"></i>
                                         </div>
                                     </div>
+                                    <div className="footer-4img">
+                                        <div className="footer41">
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/1.jpg" alt="" srcset="" width={"73px"}/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
