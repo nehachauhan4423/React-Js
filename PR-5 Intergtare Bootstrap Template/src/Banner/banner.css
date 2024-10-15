@@ -52,8 +52,10 @@
     font-weight: 600;
     letter-spacing: 0.5px;
 }
-.banner-con .button:hover{
+.banner-con button:hover,.banner-con2 button:hover{
     background-color: black;
+    border: black;
+    transition: 0.5s ;
 }
 .banner-con button:hover a{
     color: white;

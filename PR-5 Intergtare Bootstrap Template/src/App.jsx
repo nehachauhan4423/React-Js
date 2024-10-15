@@ -9,14 +9,19 @@ import Organic from './Organic/Organic';
 import Testimonial from './Testimonial/testimonial';
 import News from './News/News'
 import Footer from "./Footer/Footer";
+import Great from "./Great/Great";
+import Popular from './Popular/Popular';
+
 function App() {
   return (
    <>
     <Header/>
     <Banner/>
     <Categories/>
+    <Popular/>
     <Card/>
     <Services/>
+    <Great/>
     <Organic/> 
     <Testimonial/>
      <News/>

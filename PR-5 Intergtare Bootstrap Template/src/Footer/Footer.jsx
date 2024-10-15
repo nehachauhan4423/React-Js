@@ -91,9 +91,21 @@ function Footer() {
                                             <i class="fa-brands fa-instagram"></i>
                                         </div>
                                     </div>
-                                    <div className="footer-4img">
+                                    <div className="footer-4img d-flex">
                                         <div className="footer41">
                                             <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/1.jpg" alt="" srcset="" width={"73px"}/>
+                                        </div>
+                                        <div className="footer42">
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/2.jpg" alt="" srcset="" width={"73px"}/>
+                                        </div>
+                                        <div className="footer43">
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/3.jpg" alt="" srcset="" width={"73px"}/>
+                                        </div>
+                                        <div className="footer44">
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/4.jpg" alt="" srcset="" width={"73px"}/>
+                                        </div>
+                                        <div className="footer45">
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/5.jpg" alt="" srcset="" width={"73px"}/>
                                         </div>
                                     </div>
                                 </div>

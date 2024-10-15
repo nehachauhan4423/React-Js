@@ -130,6 +130,10 @@
     transition: 0.5s;
     cursor: pointer;
 }
+.footer41 img,.footer42 img,.footer43 img,.footer44 img,.footer45 img{
+    border-radius: 5px;
+    margin-right:7px;
+}
 /* footer 4 end  */
 /* copy-write strat  */
 .copy-write{
