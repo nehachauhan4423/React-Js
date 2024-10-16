@@ -70,7 +70,6 @@ function Organic() {
                 </div>
               </div>
 
-
             <div className="col-3">
               <div className="coraganic-img-i text-right">
                 <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/product/products-rightview.jpg" alt="" width={"526px"}/>
@@ -86,6 +85,11 @@ function Organic() {
             </div>
             </div>
           </div>
+
+            <div className="berry-img">
+              <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/9.png" alt="" />
+            </div>
+
         </div>
       </section>
 

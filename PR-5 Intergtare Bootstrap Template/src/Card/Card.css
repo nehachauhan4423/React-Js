@@ -98,3 +98,11 @@
     border: var(--bs-fresh-border-width) solid var(--bs-fresh-border-color);
     border-radius: var(--bs-fresh-border-radius);
 }
+.leaf-img img{
+    position: absolute;
+    top:10px;
+    left: 0;
+    transform: scaleX(-1);  
+    width: 110px;
+    height: 110px;
+}

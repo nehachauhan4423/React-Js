@@ -65,6 +65,12 @@ function News() {
                            </div>
 
                         </div>
+                        <div className="flowe-img">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/blog/shape-1.png" alt="" srcset="" />
+                        </div>
+                        <div className="tamoto-2">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/blog/shape-2.png" alt="" srcset="" />
+                        </div>
                     </div>
                 </div>
             </section>

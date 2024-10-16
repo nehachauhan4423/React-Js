@@ -93,24 +93,33 @@ function Footer() {
                                     </div>
                                     <div className="footer-4img d-flex">
                                         <div className="footer41">
-                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/1.jpg" alt="" srcset="" width={"73px"}/>
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/1.jpg" alt="" srcset="" width={"73px"} />
                                         </div>
                                         <div className="footer42">
-                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/2.jpg" alt="" srcset="" width={"73px"}/>
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/2.jpg" alt="" srcset="" width={"73px"} />
                                         </div>
                                         <div className="footer43">
-                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/3.jpg" alt="" srcset="" width={"73px"}/>
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/3.jpg" alt="" srcset="" width={"73px"} />
                                         </div>
                                         <div className="footer44">
-                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/4.jpg" alt="" srcset="" width={"73px"}/>
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/4.jpg" alt="" srcset="" width={"73px"} />
                                         </div>
                                         <div className="footer45">
-                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/5.jpg" alt="" srcset="" width={"73px"}/>
+                                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/insta/5.jpg" alt="" srcset="" width={"73px"} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                        </div>
+                        <div className="tomato-img">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/blog/shape-3.png" alt="" srcset="" />
+                        </div>
+                        <div className="lamon-img">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/12.png" alt="" srcset="" />
+                        </div>
+                        <div className="chili-img">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/13.png" alt="" srcset="" />
                         </div>
                     </div>
                 </div>
@@ -120,6 +129,8 @@ function Footer() {
                     <h6>© 2024 <span>Carrot</span>, All rights reserved.</h6>
                 </div>
             </div>
+
+
         </div>
     )
 }

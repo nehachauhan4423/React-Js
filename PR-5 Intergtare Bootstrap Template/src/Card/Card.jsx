@@ -41,6 +41,9 @@ function fresh() {
                             </div>
                         </div>
                     </div>
+                    <div className="leaf-img">
+                        <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/10.png" alt="" srcset="" />
+                    </div>
                 </div>
             </div>
         </section>

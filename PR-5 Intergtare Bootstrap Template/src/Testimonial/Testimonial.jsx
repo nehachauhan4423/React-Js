@@ -76,10 +76,10 @@ function Testimonial() {
                     </div>
                   </div>
                 </div>
-
-
-
               </div>
+            </div>
+            <div className="shape-img">
+              <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/11.png" alt="" />
             </div>
           </div>
         </div>

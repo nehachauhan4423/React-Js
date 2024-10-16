@@ -162,3 +162,9 @@
     border: 2px solid white;
     transition: 0.5s;
 }
+.mashroom-img img{
+    position: absolute;
+    width: 50px;
+    right: 52px;
+    top: 101px;
+}

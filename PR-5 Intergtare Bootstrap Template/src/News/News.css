@@ -82,3 +82,18 @@
     font-weight: 400;
     color: #fff;
 }
+.flowe-img img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    top: 40px;
+    right: 50px;
+}
+.tamoto-2 img{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    width: 70px;
+    height: 100px;/
+}

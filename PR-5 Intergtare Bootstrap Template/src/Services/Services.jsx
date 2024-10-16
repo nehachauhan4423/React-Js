@@ -40,7 +40,7 @@ function Services() {
                                 </div>
                             </div>
                         </div>
-                        {/* <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/7.png" alt="" srcset=""/> */}
+                        <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/7.png" alt="" srcset=""/>
                     </div>
                 </div>
             </section>

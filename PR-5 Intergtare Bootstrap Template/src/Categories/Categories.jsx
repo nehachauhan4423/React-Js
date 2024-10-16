@@ -69,6 +69,9 @@ export const Categories = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="mashroom-img">
+                            <img src="https://maraviyainfotech.com/projects/carrot/carrot-v2/carrot-html/assets/img/shape/6.png" alt="" />
+                        </div>
                     </div>
                 </div>
             </section>
