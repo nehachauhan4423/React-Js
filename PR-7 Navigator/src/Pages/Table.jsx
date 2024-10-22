@@ -24,7 +24,6 @@ const Table = () => {
         alert("RECORD DELETE");
     }
 
-
     const changeStatus = (id, st) => {
         if (st == "active") {
             let up = record.map((val, i) => {

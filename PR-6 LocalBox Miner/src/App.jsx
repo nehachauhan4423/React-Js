@@ -94,7 +94,7 @@ function App() {
 
               <div className="button-group">
                 &nbsp;<button type="submit" className="btn btn-primary">
-                  {edit ? 'Update Task' : <FaPlus />}
+                  {edit ? <FaEdit /> : <FaPlus />}
                 </button>&nbsp;&nbsp;
 
                 <button type="button" className="btn btn-secondary" onClick={handleClear}>
@@ -114,10 +114,10 @@ function App() {
                     <p>{val.task}</p>
                     <div className="input-status text-center">
                       <button className="btn btn-edit" onClick={() => handleEdit(val)}>
-                        <FaEdit />
+                      <i>  <FaEdit /></i>
                       </button>
                       <button className="btn btn-delete" onClick={() => handleDelete(val.id)}>
-                        <RiDeleteBin6Fill />
+                      <i>  <RiDeleteBin6Fill /></i>
                       </button>
                     </div>
                   </div>
