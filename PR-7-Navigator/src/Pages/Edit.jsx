@@ -1,20 +1,23 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useEffect,useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import { Link,useLocation,useNavigate } from 'react-router-dom'
 
 const Edit = () => {
-    const navigate = useLocation();
+    const location = useLocation();
 
-    const [name,setName] = useState("")
-    const [phone,setPhone] = useState("")
+    const navigate = useNavigate();
+
+    const [Title,setTitle] = useState("")
+    const [Description,setDescription] = useState("")
     const [editid,seEditId] = useState("")
 
     const [allrecord,setAllRecord] = useState(localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")):[])
 
     useEffect(()=>{
-        setName(localStorage?.state?.name)
-        setPhone(localStorage?.state?.phone)
+        setTitle(localStorage?.state?.Title)
+        setDescription(localStorage?.state?.Description)
         setEditId(localStorage?.state?.id)
     },[location?.state])
 
@@ -22,8 +25,8 @@ const Edit = () => {
         e.preventDefault();
         let up = allrecord.map((val,i)=>{
             if (val.id == editid) {
-                val.name = name,
-                val.phone = phone
+                val.Title = Title,
+                val.Description = Description
             }
             return val;
         })
@@ -36,21 +39,21 @@ const Edit = () => {
     <div align="center">
         <h2>EDIT USER REACT ROUTER</h2>
         <form onSubmit={handleSubmit}>
-            <table>
+            <table border={1}>
                 <tr>
                     <td>
-                        Name :
+                        Title :
                     </td>
                     <td>
-                        <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
+                        <input type="text" onChange={(e)=>setTitle(e.target.value)} value={Title}/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Phone :
+                        Description :
                     </td>
                     <td>
-                        <input type="text" onChange={(e)=>setPhone(e.target.value)} value={phone}/>
+                        <input type="text" onChange={(e)=>setDescription(e.target.value)} value={Description}/>
                     </td>
                 </tr>
                 <tr>
@@ -59,8 +62,8 @@ const Edit = () => {
                 </tr>
             </table>
         </form>
-        <link to={`/`}>View</link>
+        <Link to={`/`}>View</Link>
     </div>
   )
 }
-export default Edit;
+export default Edit

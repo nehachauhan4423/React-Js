@@ -1,0 +1,64 @@
+.form-table{
+   background-color:#fde8d35c;
+   width: 100%;
+   height: 100vh;
+   align-items: center;
+   justify-content: center;
+   padding: 10px;
+}
+table{
+    width:450px;
+    text-align: center;
+    background-color: #b0a6a7d5;
+    color: #30333a;
+    font-family: sans-serif;
+    border-radius: 3px;
+    padding: 10px;
+}
+table thead{
+    border-bottom:3px solid #fef7ef;
+    color: #493b46;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #b0a6a7db;
+}
+table thead button{
+  width: 25px;
+  height: 25px;
+  background-color:#feecdb;
+  font-size: 15px;
+}
+table tbody tr{
+    color: #493b46;
+    font-family: sans-serif;
+    font-size: 18px;
+    background-color: #b0a6a700;
+    border-bottom: 1px solid  #fef7ef;
+}
+h2{
+    color: #534145;
+    font-family: serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-top: 40px;
+}
+table span i{
+    color: #493b46;
+    font-size: 20px;
+    font-weight: 900;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 20px;
+    height: 20px;
+    text-align: end;
+}
+.button-link{
+    width:70px;
+    height: 40px;
+    background-color: antiquewhite;
+}

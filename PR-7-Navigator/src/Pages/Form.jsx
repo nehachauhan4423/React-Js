@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import "./Form.css";
 
 const Form = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
+    const [Title, setTitle] = useState("");
+    const [Description, setDescription] = useState("");
 
     const [allrecord, setAllRecord] = useState(localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : []);
 
@@ -12,8 +15,8 @@ const Form = () => {
         e.preventDefault();
         let obj = {
             id: Math.floor(Math.random() * 100000),
-            name: name,
-            phone: phone,
+            Title: Title,
+            Description: Description,
             status: "active",
         };
         const newrecord = [...allrecord, obj];
@@ -26,14 +29,14 @@ const Form = () => {
         <div align="center">
             <h2>ADD USER REACT ROUTER</h2>
             <form onSubmit={handleSubmit}>
-                <table border={1}>
+                <table>
                     <tr>
-                        <td>Name :-</td>
-                        <td><input type="text" onChange={(e) => setName(e.target.value)} value={name} /></td>
+                        <td>Title :-</td>
+                        <td><input type="text" onChange={(e) => setTitle(e.target.value)} value={Title} /></td>
                     </tr>
                     <tr>
-                        <td>Phone :-</td>
-                        <td><input type="text" onChange={(e) => setPhone(e.target.value)} value={phone} /></td>
+                        <td>Description :-</td>
+                        <td><input type="text" onChange={(e) => setDescription(e.target.value)} value={Description} /></td>
                     </tr>
                     <tr>
                         <td></td>
