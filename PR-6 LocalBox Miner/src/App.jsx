@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import "./App.css";
-import { useState } from 'react'
 import { FaPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
@@ -15,13 +14,19 @@ function App() {
   const [edit, setEdit] = useState("");
   const [recod, setRecod] = useState([]);
 
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem('user')) || [];
+    setRecod(savedTasks);
+  }, []);
+
   const handlSubmit = (e) => {
     e.preventDefault();
 
     if (!date || !name || !task) {
-      alert("PLEASE ADD NAME,DATE AND TASK..");
+      alert("PLEASE ADD NAME, DATE AND TASK..");
       return;
     }
+
     let obj = {
       id: edit ? edit : Math.floor(Math.random() * 10000),
       name: name,
@@ -29,59 +34,52 @@ function App() {
       task: task,
     };
 
-
     if (edit) {
-      let updateRecords = recod.map((val) => val.id === edit ? obj : val);
-      localStorage.setItem('user', JSON.stringify(updateRecords));
-      setRecod(updateRecords);
-      alert("RECORD UPDATE..!");
+      let updatedRecords = recod.map((val) => val.id === edit ? obj : val);
+      localStorage.setItem('user', JSON.stringify(updatedRecords));
+      setRecod(updatedRecords);
+      alert("RECORD UPDATED!");
+    } else {
+      let allRecords = [...recod, obj];
+      localStorage.setItem('user', JSON.stringify(allRecords));
+      setRecod(allRecords);
+      alert("RECORD ADDED!");
     }
-    else {
-      let allRecord = [...recod, obj];
-      localStorage.setItem("user", JSON.stringify(allRecord));
-      setRecod(allRecord);
-      alert("RECORD ADD..!");
-    }
-
 
     setName("");
     setDate("");
     setTask("");
-    seteditId("");
-  }
+    setEdit("");
+  };
 
   const handleDelete = (id) => {
-    let filterRecord = recod.filter((val) => val.id !== id);
-    localStorage.setItem("user", JSON.stringify(filterRecord))
-    setRecod(filterRecord);
-    alert("RECORD DELETE..!")
-  }
+    let filteredRecords = recod.filter((val) => val.id !== id);
+    localStorage.setItem("user", JSON.stringify(filteredRecords));
+    setRecod(filteredRecords);
+    alert("RECORD DELETED!");
+  };
 
   const handleEdit = (val) => {
     setName(val.name);
     setDate(val.date);
     setTask(val.task);
-    seteditId(val.id);
-  }
+    setEdit(val.id);
+  };
 
   const handleClear = () => {
     setName("");
     setDate("");
     setTask("");
-    setedit("");
-  }
+    setEdit("");
+  };
 
   return (
     <div>
       <div className="container text-center align-items-center">
-
-
         <div className="form-container">
-          <div className="card" style={{border:"white"}}>
+          <div className="card" style={{ border: "white" }}>
             <h1>TODO APP</h1>
-            {/* <h4>ADD TASK</h4> */}
             <form onSubmit={handlSubmit}>
-
               <div className="input-form">
                 <input type="text" placeholder='Enter Name' onChange={(e) => setName(e.target.value)} value={name} />
               </div>
@@ -95,34 +93,31 @@ function App() {
               </div>
 
               <div className="button-group">
-
-                &nbsp;<button type="submit" className="btn-primary" style={{backgroundColor:''}}>
-                  {edit ? 'Update Task':<i><FaPlus /></i>}
+                &nbsp;<button type="submit" className="btn btn-primary">
+                  {edit ? 'Update Task' : <FaPlus />}
                 </button>&nbsp;&nbsp;
 
-                <button type="button" className='btn-secondary' onClick={handleClear}>
-                <MdDelete />
+                <button type="button" className="btn btn-secondary" onClick={handleClear}>
+                  <MdDelete />
                 </button>
-
               </div>
             </form>
           </div>
-
 
           <div className="input-list text-start">
             {recod.length > 0 ? (
               recod.map((val) => (
                 <div className="input-card" key={val.id}>
-                  <div className="input-details" >
+                  <div className="input-details">
                     <h5>{val.name}</h5>
                     <h6>{val.date}</h6>
                     <p>{val.task}</p>
                     <div className="input-status text-center">
-                      <button className="btn-edit" onClick={() => handleEdit(val)}>
-                      <i><FaEdit /></i>
+                      <button className="btn btn-edit" onClick={() => handleEdit(val)}>
+                        <FaEdit />
                       </button>
-                      <button className="btn-delete" onClick={() => handleDelete(val.id)}>
-                      <i><RiDeleteBin6Fill /></i>
+                      <button className="btn btn-delete" onClick={() => handleDelete(val.id)}>
+                        <RiDeleteBin6Fill />
                       </button>
                     </div>
                   </div>
@@ -130,17 +125,14 @@ function App() {
               ))
             ) : (
               <div className="input-no">
-                <p className='text-center'>PLEASE ADD TASK..!!</p>
+                <p className="text-center">PLEASE ADD TASK..!!</p>
               </div>
-            )
-            }
+            )}
           </div>
         </div>
-
-
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,5 +1,5 @@
 {
-  "name": "react-router",
+  "name": "pr-7-navigator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
