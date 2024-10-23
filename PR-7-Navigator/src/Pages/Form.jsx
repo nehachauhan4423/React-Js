@@ -17,7 +17,6 @@ const Form = () => {
             id: Math.floor(Math.random() * 100000),
             Title: Title,
             Description: Description,
-            status: "active",
         };
         const newrecord = [...allrecord, obj];
         localStorage.setItem("users", JSON.stringify(newrecord));
@@ -26,25 +25,29 @@ const Form = () => {
     };
 
     return (
-        <div align="center">
-            <h2>ADD USER REACT ROUTER</h2>
-            <form onSubmit={handleSubmit}>
-                <table>
+        <div align="center" className="add-task text-center">
+            <h1>ROUTER CRUD </h1>
+            <form onSubmit={handleSubmit} className="form-form">
+                <table className="form-table2">
                     <tr>
-                        <td>Title :-</td>
+                        <td style={{ fontSize: "20px", fontFamily: "sans-serif", fontWeight: "800", fontFamily: "Georgia, 'Times New Roman', Times, serif", textAlign: "start", paddingLeft: "10px" }}>Title</td>
                         <td><input type="text" onChange={(e) => setTitle(e.target.value)} value={Title} /></td>
                     </tr>
                     <tr>
-                        <td>Description :-</td>
+                        <td style={{ fontSize: "20px", fontFamily: "sans-serif", fontWeight: "800", fontFamily: "Georgia, 'Times New Roman', Times, serif", textAlign: "start" }}>Description</td>
                         <td><input type="text" onChange={(e) => setDescription(e.target.value)} value={Description} /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="submit" /></td>
+                        <td><div className="form-submit text-start">
+                            <input type="submit"  style={{width:"100px",marginBottom:"10px"}}/></div></td>
+                            
                     </tr>
                 </table>
             </form>
-            <Link to={`/`}>View</Link>
+            <div className="form-table-button">
+                            <Link to={`/`}>View</Link>
+                            </div>
         </div>
     );
 };

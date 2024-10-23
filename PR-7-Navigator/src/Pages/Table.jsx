@@ -4,23 +4,16 @@ import { MdDelete } from "react-icons/md";
 import { MdDeleteSweep } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import {  } from "./Table.css";
-// import "./Categories.css";
 
 const Table = () => {
     const navigate = useNavigate();
-    const [status, setStatus] = useState("")
-    const [search, setSearch] = useState("")
-    const [sort, setSort] = useState("")
     const [filterData, setfilterData] = useState([])
     const [mdelete,setMdelte] = useState([])
-
-
     const allusers = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
-
-
     const [record, setRecord] = useState(allusers)
 
 
@@ -30,33 +23,6 @@ const Table = () => {
         setRecord(d);
         alert("RECORD DELETE");
     }
-
-    const changeStatus = (id, st) => {
-        if (st == "active") {
-            let up = record.map((val, i) => {
-                if (val.id == id) {
-                    val.status = "deactive"
-                }
-                return val;
-            })
-            localStorage.setItem("users", JSON.stringify(up));
-            setRecord(up);
-            alert("STATUS SUCCESFULLY CHANGED");
-        } else {
-            let up = record.map((val, i) => {
-                if (val.id == id) {
-                    val.status = "active"
-                }
-                return val;
-            })
-            localStorage.setItem("users", JSON.stringify(up));
-            setRecord(up);
-            alert("STATUS SUCCESSFULLY CHANGED");
-
-        }
-    }
-
-
     useEffect(() => {
         let filtered = [...allusers]
         setfilterData(filtered)
@@ -66,8 +32,6 @@ const Table = () => {
     const reset = () => {
         setfilterData(allusers);
         setStatus("");
-        setSearch("");
-        setSort("");
     }
 
 
@@ -90,12 +54,6 @@ const Table = () => {
         alert("RECORD DELETE");
         setMdelte([])
     }
-
-    const multipleStatus = () => {
-        alert("MULTIPLE STATUS HII")
-    }
-
-
     return (
         <div align="center" className="form-table">
             <h2>View User</h2>
@@ -110,7 +68,7 @@ const Table = () => {
                         <th>Description</th>
                         <th>
                         Action &nbsp;&nbsp;
-                            <button onClick={()=>multipleDelete()}>D</button>
+                            <button onClick={()=>multipleDelete()}> <i><MdDeleteOutline /></i> </button>
                         </th>
                     </tr>
                 </thead>

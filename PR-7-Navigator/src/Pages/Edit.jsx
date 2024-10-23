@@ -1,69 +1,81 @@
-import React from 'react'
-import { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import { Link,useLocation,useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  } from "./Edit.css";
 
 const Edit = () => {
-    const location = useLocation();
-
     const navigate = useNavigate();
+    const location = useLocation();
+    const [Title, setTitle] = useState("");
+    const [Description, setDescription] = useState("");
+    const [editId, setEditId] = useState("");
+    const [allRecord, setAllRecord] = useState(localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : []);
 
-    const [Title,setTitle] = useState("")
-    const [Description,setDescription] = useState("")
-    const [editid,seEditId] = useState("")
 
-    const [allrecord,setAllRecord] = useState(localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")):[])
+    useEffect(() => {
+        if (location?.state) {
+            setTitle(location.state.Title);
+            setDescription(location.state.Description);
+            setEditId(location.state.id);
+        }
+    }, [location]);
 
-    useEffect(()=>{
-        setTitle(localStorage?.state?.Title)
-        setDescription(localStorage?.state?.Description)
-        setEditId(localStorage?.state?.id)
-    },[location?.state])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let up = allrecord.map((val,i)=>{
-            if (val.id == editid) {
-                val.Title = Title,
-                val.Description = Description
-            }
-            return val;
-        })
-        localStorage.setItem("users",JSON.stringify(up));
-        alert("RECORD UPDATE")
-        navigate("/")
-    }
 
-  return (
-    <div align="center">
-        <h2>EDIT USER REACT ROUTER</h2>
-        <form onSubmit={handleSubmit}>
-            <table border={1}>
-                <tr>
-                    <td>
-                        Title :
-                    </td>
-                    <td>
-                        <input type="text" onChange={(e)=>setTitle(e.target.value)} value={Title}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Description :
-                    </td>
-                    <td>
-                        <input type="text" onChange={(e)=>setDescription(e.target.value)} value={Description}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" /></td>
-                </tr>
-            </table>
-        </form>
-        <Link to={`/`}>View</Link>
-    </div>
-  )
-}
-export default Edit
+        let updatedRecords = allRecord.map((record) => {
+            if (record.id === editId) {
+                return { ...record, Title, Description };
+            }
+            return record;
+        });
+        localStorage.setItem("users", JSON.stringify(updatedRecords));
+        alert("RECORD UPDATED");
+        navigate("/");
+    };
+
+    return (
+        <div className="edit-form text-center">
+            <h2>Edit User React Router</h2>
+            <form onSubmit={handleSubmit}>
+                <table className="table-edit">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Input</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Title:</td>
+                            <td>
+                                <input type="text" className="form-control" onChange={(e) => setTitle(e.target.value)} value={Title} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>
+                                <input type="text" className="form-control" onChange={(e) => setDescription(e.target.value)} value={Description} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan="3">
+                                <div className="update-button d-flex">
+                                <input type="submit" value="Update Record" />&nbsp;&nbsp;&nbsp;
+                                <div className="edit-button">
+                                    <Link to="/">View</Link>
+                                </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+           
+        </div>
+    );
+};
+
+export default Edit;
