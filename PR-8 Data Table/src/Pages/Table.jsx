@@ -2,6 +2,7 @@ import { useState, useEffect }  from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import {  } from "./Table.css";
 
 
 const Table = () => {
@@ -120,7 +121,7 @@ const Table = () => {
 
 
     return (
-        <div align="center">
+        <div align="center" className="table-select">
             <h2>View User</h2>
 
 
@@ -128,22 +129,22 @@ const Table = () => {
                 <option value="">----Select Status---</option>
                 <option value="active">Active</option>
                 <option value="deactive">Deactive</option>
-            </select>
+            </select>&nbsp;&nbsp;
 
 
-            <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" />
+            <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" />&nbsp;&nbsp;
 
             <select onChange={(e) => setSort(e.target.value)} value={sort}>
                 <option value="">----select sort---</option>
                 <option value="asc">A-Z</option>
                 <option value="dsc">Z-A</option>
-            </select>
+            </select>&nbsp;&nbsp;
 
             <button onClick={() => reset()}>Reset</button>
 
             <br /><br />
 
-            <table cellPadding={10}>
+            <table cellPadding={10} className="table-main">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -151,7 +152,7 @@ const Table = () => {
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Course</th>
-                        <th>date</th>
+                        <th>Date</th>
                         <th>Status</th>
                         <th>Action</th> 
                     </tr>
@@ -171,11 +172,11 @@ const Table = () => {
                                 <td>
                                    {
                                      status == "active" ?(
-                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"green"}}>
+                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"green",color:"white"}}>
                                             {status}
                                         </button>
                                     ):(
-                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"red"}}>
+                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"red",color:"white"}}>
                                             {status}
                                         </button>
                                     )

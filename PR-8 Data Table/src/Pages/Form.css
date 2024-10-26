@@ -1,0 +1,98 @@
+.react-router-form {
+    width: 900px;
+    margin-left: 330px;
+   margin: 50px 0 50px 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.9;
+    border-radius:10px;
+}
+.react-router-form:hover{
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    transition: 0.9s;
+    
+}
+.form-user {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.33);
+    border-radius: 10px;
+}
+
+.form-header {
+    background-color: #95959528;
+    padding: 20px;
+    border-top-left-radius: 9px;
+    
+}
+
+.form-header h5 {
+    font-family: serif;
+    font-weight: 900;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    color: #071739;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.form-button {
+    width: 100px;
+    height: 45px;
+    background-color: #2e4b88;
+    text-align: center;
+    align-items: center;
+    margin-left: 620px;
+    padding-top: 4px;
+}
+.form-button a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.form-con {
+    padding: 30px 45px 45px 45px;
+}
+
+.form-name-con input {
+    width: 809px;
+    margin: 8px 10px 10px 0;
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid gainsboro;
+}
+
+.form-course-con {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-course-con span {
+    margin-bottom: 5px;
+}
+
+.form-date-con span {
+    margin-bottom: 10px;
+}
+
+.form-date-con input {
+    width: 250px;
+    margin: 5px 0 8px 0;
+    border-radius: 4px;
+    padding: 4px;
+    border: 1px solid gainsboro;
+}
+
+.form-select-section select {
+    width: 809px;
+    border-radius: 4px;
+    padding: 7px;
+    border: 1px solid gainsboro;
+}
+
+.form-submit input {
+    width: 110px;
+    height: 40px;
+    background-color: #2e4b88;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 0;
+}
+

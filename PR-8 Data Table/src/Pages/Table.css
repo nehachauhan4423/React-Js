@@ -1,0 +1,28 @@
+.table-select h2{
+    margin: 10px 0 20px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+.table-main tbody tr td{
+    padding: 15px;
+    font-family: sans-serif;
+}
+.table-main thead tr th{
+        font-size: 18px; 
+        font-family: Georgia, 'Times New Roman', Times, serif; 
+        letter-spacing: 0.5px;
+        text-align:start;
+}
+.table-select select{
+    width: 200px;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 0.5px;
+}
+.table-select input{
+    padding: 5px;
+    width: 200px;
+}
+.resent-button button{
+    width: 70px;
+}

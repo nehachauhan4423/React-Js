@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { } from "./Edit.css";
 
 const Edit = () => {
     const location = useLocation();
@@ -11,6 +12,7 @@ const Edit = () => {
     const [gender, setGender] = useState("");
     const [course, setCourse] = useState("");
     const [date, setDate] = useState("");
+    const [status, setStatus] = useState("");
     const [editId, setEditId] = useState('');
 
     const [allRecord, setAllRecord] = useState(
@@ -37,13 +39,13 @@ const Edit = () => {
         }
     };
 
-    
+
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Update the specific record in the list
+        // Update record 
         let updatedRecords = allRecord.map((val) => {
             if (val.id === editId) {
                 return { ...val, name: name, email: email, gender: gender, course: course, date: date };
@@ -51,7 +53,7 @@ const Edit = () => {
             return val;
         });
 
-        // Update localStorage with the modified list
+        // Update localStorage
         localStorage.setItem('users', JSON.stringify(updatedRecords));
 
         alert('Record Updated');
@@ -59,163 +61,54 @@ const Edit = () => {
     };
 
     return (
-        <div align="center">
-            <h2>EDIT USER REACT ROUTER</h2>
+        <div className='react-router-edit'>
             <form onSubmit={handleSubmit}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Name :</td>
-                            <td>
-                                <input
-                                    type="text"
-                                    onChange={(e) => setName(e.target.value)}
-                                    value={name}
-                                />
-                            </td>
-                        </tr>
+                <div className="edit-user">
+                    <div className="edit-header d-flex">
+                        <h5>ADD USER</h5>
+                        <div className="edit-button">
+                            <Link to={`/`}>View</Link>
+                        </div>
+                    </div>
 
-                        <tr>
-                            <td>Email :</td>
-                            <td>
-                                <input
-                                    type="email"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    value={email}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
+                    <div className="edit-con">
 
-                            Gender : <br /> <label><input
-                                type="radio"
-                                value="male"
-                                checked={gender === "male"}
-                                onChange={(e) => setGender(e.target.value)} />
-                                Male
-                            </label> <br />
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="female"
-                                    checked={gender === "female"}
-                                    onChange={(e) => setGender(e.target.value)}
-                                />
-                                Female
-                            </label>
-                        </tr>
+                        <div className="edit-name-con">
+                            Name :<input type="text" onChange={(e) => setName(e.target.value)} value={name} />
+                            Email :<input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                        </div>
 
-                        <tr>
-                            <td>Course :</td>
-                            <td>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="html"
-                                        checked={course.includes('html')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Html
-                                </label> &nbsp;
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="css"
-                                        checked={course.includes('css')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    CSS
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="BootStrap"
-                                        checked={course.includes('BootStrap')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    BootStrap
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="Js"
-                                        checked={course.includes('Js')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Js
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="React Js"
-                                        checked={course.includes('React Js')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    React Js
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="Node Js"
-                                        checked={course.includes('Node Js')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Node  Js
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="PHP"
-                                        checked={course.includes('PHP')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    PHP
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="Angular"
-                                        checked={course.includes('Angular')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Angular
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="Phython"
-                                        checked={course.includes('Phython')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Phython
-                                </label>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value="Laravel"
-                                        checked={course.includes('Laravel')}
-                                        onChange={handleCourseChange}
-                                    />
-                                    Laravel
-                                </label>
-                            </td>
-                        </tr>
-                        <td>
+                        Gender : <br /> <label><input type="radio" value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)} />Male</label> <br />
+                        <label><input type="radio" value="female" checked={gender === "female"} onChange={(e) => setGender(e.target.value)} />Female</label> <br />
 
-                            <input type="date" name="" id=""onChange={(e) => setDate(e.target.value)}
-                                    value={date} />
+                        <div className="edit-course-con">
+                            Course : <br />
+                            <label><input type="checkbox" value="html" checked={course.includes('html')} onChange={handleCourseChange} />&nbsp;Html</label> &nbsp;
+                            <label><input type="checkbox" value="css" checked={course.includes('css')} onChange={handleCourseChange} />&nbsp;CSS </label>
+                            <label><input type="checkbox" value="BootStrap" checked={course.includes('BootStrap')} onChange={handleCourseChange} />&nbsp;BootStrap</label>
+                            <label><input type="checkbox" value="Js" checked={course.includes('Js')} onChange={handleCourseChange} />&nbsp;Js</label>
+                            <label><input type="checkbox" value="React Js" checked={course.includes('React Js')} onChange={handleCourseChange} />&nbsp;React Js</label>
+                            <label><input type="checkbox" value="Node Js" checked={course.includes('Node Js')} onChange={handleCourseChange} />&nbsp;Node  Js</label>
+                            <label><input type="checkbox" value="PHP" checked={course.includes('PHP')} onChange={handleCourseChange} />&nbsp;PHP</label>
+                            <label><input type="checkbox" value="Angular" checked={course.includes('Angular')} onChange={handleCourseChange} />&nbsp;Angular</label>
+                            <label><input type="checkbox" value="Phython" checked={course.includes('Phython')} onChange={handleCourseChange} />&nbsp;Phython</label>
+                            <label><input type="checkbox" value="Laravel" checked={course.includes('Laravel')} onChange={handleCourseChange} />&nbsp;Laravel</label> <br />
+                        </div>
 
-                        </td>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <input type="submit" value="Update" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                        <div className="edit-date-con">
+                            Date : <br /><input type="date" name="" id="" onChange={(e) => setDate(e.target.value)}
+                                value={date} />
+                        </div>
+                            
+                        <div className="edit-update-button d-flex">
+                            <input type="submit" value="Update" />
+                        </div>
+
+                    </div>
+                </div>
             </form>
-            <Link to={`/`}>View</Link>
+
         </div>
     );
 };
