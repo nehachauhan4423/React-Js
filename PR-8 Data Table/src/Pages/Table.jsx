@@ -1,8 +1,8 @@
-import { useState, useEffect }  from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import {  } from "./Table.css";
+import { } from "./Table.css";
 
 
 const Table = () => {
@@ -11,7 +11,7 @@ const Table = () => {
     const [search, setSearch] = useState("")
     const [sort, setSort] = useState("")
     const [filterData, setfilterData] = useState([])
-    const [mdelete,setMdelte] = useState([])
+    const [mdelete, setMdelte] = useState([])
 
 
     const allusers = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
@@ -74,17 +74,17 @@ const Table = () => {
             filtered.sort((a, b) => {
                 if (sort === "asc") {
                     return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-                  } else if (sort === "dsc") {
+                } else if (sort === "dsc") {
                     return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
-                  }
-                
+                }
+
             });
         } else {
             setfilterData(allusers)
         }
 
         setfilterData(filtered)
-    }, [status, search, sort,record])
+    }, [status, search, sort, record])
 
 
     const reset = () => {
@@ -95,21 +95,21 @@ const Table = () => {
     }
 
 
-    const multipleDeleteRecord = (id,checked) => {
+    const multipleDeleteRecord = (id, checked) => {
         let old = [...mdelete];
         if (checked) {
-                old.push(id)
+            old.push(id)
         }
-        else{
-            old = old.filter(val=>val != id)
+        else {
+            old = old.filter(val => val != id)
         }
         setMdelte(old)
     }
 
     // multiple delete 
     const multipleDelete = () => {
-        let d = record.filter(val =>!mdelete.includes(val.id));
-        localStorage.setItem("users",JSON.stringify(d));
+        let d = record.filter(val => !mdelete.includes(val.id));
+        localStorage.setItem("users", JSON.stringify(d));
         setRecord(d)
         alert("RECORD DELETE");
         setMdelte([])
@@ -124,24 +124,26 @@ const Table = () => {
         <div align="center" className="table-select">
             <h2>View User</h2>
 
+            <div className="select-setion" align="center">
 
-            <select onChange={(e) => setStatus(e.target.value)} value={status}>
-                <option value="">----Select Status---</option>
-                <option value="active">Active</option>
-                <option value="deactive">Deactive</option>
-            </select>&nbsp;&nbsp;
+                <select onChange={(e) => setStatus(e.target.value)} value={status}>
+                    <option value="">----Select Status---</option>
+                    <option value="active">Active</option>
+                    <option value="deactive">Deactive</option>
+                </select>&nbsp;&nbsp;
 
 
-            <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" />&nbsp;&nbsp;
+                <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" />&nbsp;&nbsp;
 
-            <select onChange={(e) => setSort(e.target.value)} value={sort}>
-                <option value="">----select sort---</option>
-                <option value="asc">A-Z</option>
-                <option value="dsc">Z-A</option>
-            </select>&nbsp;&nbsp;
+                <select onChange={(e) => setSort(e.target.value)} value={sort}>
+                    <option value="">----select sort---</option>
+                    <option value="asc">A-Z</option>
+                    <option value="dsc">Z-A</option>
+                </select>&nbsp;&nbsp;
 
-            <button onClick={() => reset()}>Reset</button>
+                <button onClick={() => reset()} style={{ backgroundColor: "#2e4b88", width: "100px", height: "37px", border: "0",color:"white",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"18px",letterSpacing:"0.9px" }}>Reset</button>
 
+            </div>
             <br /><br />
 
             <table cellPadding={10} className="table-main">
@@ -154,49 +156,51 @@ const Table = () => {
                         <th>Course</th>
                         <th>Date</th>
                         <th>Status</th>
-                        <th>Action</th> 
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                      filterData.map((u,i)=>{
-                        const {id,name,email,gender,course,date,status} = u
-                        return(
-                            <tr key={i}>
-                                <td>{id}</td>
-                                <td>{name}</td>
-                                <td>{email}</td>
-                                <td>{gender}</td>
-                                <td>{course}</td>
-                                <td>{date}</td>
-                                <td>
-                                   {
-                                     status == "active" ?(
-                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"green",color:"white"}}>
-                                            {status}
-                                        </button>
-                                    ):(
-                                        <button onClick={()=>changeStatus(id,status)} style={{backgroundColor:"red",color:"white"}}>
-                                            {status}
-                                        </button>
-                                    )
-                                   }
-                                </td>
-                                <td>
-                                    <span onClick={()=>userDelete(id)}>
-                                        <i> <MdDelete style={{color:"orange"}} /></i>
-                                    </span>&nbsp;&nbsp;&nbsp;
-                                    <span onClick={()=>navigate(`/edit`,{state:u})}>
-                                        <i><FaEdit style={{color:"blue"}}/></i>
-                                    </span>
-                                </td>
-                            </tr>
-                        )
-                      })
+                        filterData.map((u, i) => {
+                            const { id, name, email, gender, course, date, status } = u
+                            return (
+                                <tr key={i}>
+                                    <td>{id}</td>
+                                    <td>{name}</td>
+                                    <td>{email}</td>
+                                    <td>{gender}</td>
+                                    <td>{course}</td>
+                                    <td>{date}</td>
+                                    <td>
+                                        {
+                                            status == "active" ? (
+                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "green", color: "white" }}>
+                                                    {status}
+                                                </button>
+                                            ) : (
+                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "red", color: "white" }}>
+                                                    {status}
+                                                </button>
+                                            )
+                                        }
+                                    </td>
+                                    <td>
+                                        <span onClick={() => userDelete(id)}>
+                                            <i> <MdDelete style={{ color: "orange" }} /></i>
+                                        </span>&nbsp;&nbsp;&nbsp;
+                                        <span onClick={() => navigate(`/edit`, { state: u })}>
+                                            <i><FaEdit style={{ color: "blue" }} /></i>
+                                        </span>
+                                    </td>
+                                </tr>
+                            )
+                        })
                     }
                 </tbody>
             </table>
-               <Link to={`/add`}>Add</Link> 
+            <div className="table-add">
+                <Link to={`/add`}>Add</Link>
+            </div>
         </div>
     )
 

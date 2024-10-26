@@ -26,3 +26,17 @@
 .resent-button button{
     width: 70px;
 }
+.table-add{
+    width: 100px;
+    height: 45px;
+    background-color: #2e4b88;
+    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 8px;
+}
+.table-add a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    letter-spacing: 0.9px;
+    font-size: 20px;
+}

@@ -84,14 +84,14 @@ const Edit = () => {
                         <div className="edit-course-con">
                             Course : <br />
                             <label><input type="checkbox" value="html" checked={course.includes('html')} onChange={handleCourseChange} />&nbsp;Html</label> &nbsp;
-                            <label><input type="checkbox" value="css" checked={course.includes('css')} onChange={handleCourseChange} />&nbsp;CSS </label>
-                            <label><input type="checkbox" value="BootStrap" checked={course.includes('BootStrap')} onChange={handleCourseChange} />&nbsp;BootStrap</label>
-                            <label><input type="checkbox" value="Js" checked={course.includes('Js')} onChange={handleCourseChange} />&nbsp;Js</label>
-                            <label><input type="checkbox" value="React Js" checked={course.includes('React Js')} onChange={handleCourseChange} />&nbsp;React Js</label>
-                            <label><input type="checkbox" value="Node Js" checked={course.includes('Node Js')} onChange={handleCourseChange} />&nbsp;Node  Js</label>
-                            <label><input type="checkbox" value="PHP" checked={course.includes('PHP')} onChange={handleCourseChange} />&nbsp;PHP</label>
-                            <label><input type="checkbox" value="Angular" checked={course.includes('Angular')} onChange={handleCourseChange} />&nbsp;Angular</label>
-                            <label><input type="checkbox" value="Phython" checked={course.includes('Phython')} onChange={handleCourseChange} />&nbsp;Phython</label>
+                            <label><input type="checkbox" value="css" checked={course.includes('css')} onChange={handleCourseChange} />&nbsp;CSS </label>&nbsp;
+                            <label><input type="checkbox" value="BootStrap" checked={course.includes('BootStrap')} onChange={handleCourseChange} />&nbsp;BootStrap</label>&nbsp;
+                            <label><input type="checkbox" value="Js" checked={course.includes('Js')} onChange={handleCourseChange} />&nbsp;Js</label>&nbsp;
+                            <label><input type="checkbox" value="React Js" checked={course.includes('React Js')} onChange={handleCourseChange} />&nbsp;React Js</label>&nbsp;
+                            <label><input type="checkbox" value="Node Js" checked={course.includes('Node Js')} onChange={handleCourseChange} />&nbsp;Node  Js</label>&nbsp;
+                            <label><input type="checkbox" value="PHP" checked={course.includes('PHP')} onChange={handleCourseChange} />&nbsp;PHP</label>&nbsp;
+                            <label><input type="checkbox" value="Angular" checked={course.includes('Angular')} onChange={handleCourseChange} />&nbsp;Angular</label>&nbsp;
+                            <label><input type="checkbox" value="Phython" checked={course.includes('Phython')} onChange={handleCourseChange} />&nbsp;Phython</label>&nbsp;
                             <label><input type="checkbox" value="Laravel" checked={course.includes('Laravel')} onChange={handleCourseChange} />&nbsp;Laravel</label> <br />
                         </div>
 
