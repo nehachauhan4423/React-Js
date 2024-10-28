@@ -174,11 +174,11 @@ const Table = () => {
                                     <td>
                                         {
                                             status == "active" ? (
-                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "green", color: "white" }}>
+                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "green", color: "white",border:"0",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"20px",letterSpacing:"0.5px", }}>
                                                     {status}
                                                 </button>
                                             ) : (
-                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "red", color: "white" }}>
+                                                <button onClick={() => changeStatus(id, status)} style={{ backgroundColor: "red", color: "white",border:"0",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"20px",letterSpacing:"0.5px", }}>
                                                     {status}
                                                 </button>
                                             )
@@ -186,10 +186,10 @@ const Table = () => {
                                     </td>
                                     <td>
                                         <span onClick={() => userDelete(id)}>
-                                            <i> <MdDelete style={{ color: "orange" }} /></i>
+                                            <i> <MdDelete style={{ color: "teal",fontSize:"20px" }} /></i>
                                         </span>&nbsp;&nbsp;&nbsp;
                                         <span onClick={() => navigate(`/edit`, { state: u })}>
-                                            <i><FaEdit style={{ color: "blue" }} /></i>
+                                            <i><FaEdit style={{ color: "darkblue",fontSize:"20px" }} /></i>
                                         </span>
                                     </td>
                                 </tr>
