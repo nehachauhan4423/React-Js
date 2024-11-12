@@ -11,4 +11,4 @@ const Counter = ({no,plus,minus,reset}) =>{
         </div>
     )
 }
-export default Counter
+export default Counter 
