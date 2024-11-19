@@ -1,6 +1,13 @@
-export const Add =  (data) => {
+export const addUser = (addData) => {
     return{
-        type : 'add',
-        playload :data
+        type : 'add_user',
+        payload : addData
+    }
+}
+
+export const deleteUser = (deleteData) => {
+    return{
+        type : 'delete_user',
+        payload : deleteData
     }
 }

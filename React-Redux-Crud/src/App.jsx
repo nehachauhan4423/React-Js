@@ -1,6 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-rout-dom";
+// import {  } from "./Pages/View";
+
 function App() {
   return (
-    <h1>hiee</h1>
+    <>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path="/" element={<View />} />
+          <Route path="/add" element={<Add />} /> */}
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

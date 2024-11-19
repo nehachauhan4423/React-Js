@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import crudReducer from "./Reducer/CrudReducer";
+import crudReduce from "./CrudReducer";
 
 const mainReducers = combineReducers({
-    crudReducer
+    crudReduce
 })
 
 export default mainReducers

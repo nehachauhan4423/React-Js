@@ -7,7 +7,7 @@ function App() {
 
   return(
     <>
-      <div align="center"> 
+      <div align="center" className="neha"> 
           <h1>COUNTER APP</h1>
           <h2>Count : {no}</h2>
           <button onClick={()=> dispatch(Increment())}>+</button>
