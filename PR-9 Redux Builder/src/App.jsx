@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
-import {adduser,deleteuser} from "./Redux/Action/NoteAction"
+// import {adduser,deleteuser} from "./Redux/Action/NoteAction"
+import {add , delet} from "./Redux/Action/NoteAction";
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       note
     }
 
-    dispatch(addeduser(obj))
+    dispatch(add(obj))
     setTitle("")
     setNote("")
     alert("Note add ")
@@ -47,14 +48,19 @@ function App() {
             </form>
           </div>
 
-          <div className="justift-content-center">
-            <h5>{val.title}</h5>
-            <p>{val.note}</p>
-            <div className="deletbtn">
-              <button className="btn btn-danger" onClick={() => dispatch(deleteduser(val.id))}></button>
-            </div>
+          <div  className="justify-content-center">
+            {
+              record.map((item, index) => {
+                return (
+                  <div key={index} className="card">
+                    <h2>{item.title}</h2>
+                    <p>{item.note}</p>
+                    </div>
+                    )
+                    })
+            }
+            
           </div>
-
 
         </div>
       </div>

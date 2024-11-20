@@ -1,14 +1,15 @@
-export const adduser = (data) => {
+export const add = (data) => {
     return {
         type : 'adddata',
         payload : data
     }
 }
 
-
-export const deleteuser = (data) => {
+export const delet =(id) =>{
     return {
-        type : 'deletedata',
+        type : 'delete', 
         payload : id
+
     }
 }
+

@@ -5,4 +5,4 @@ const rootreducer = combineReducers({
   notes : notesReducer
 })
 
-export default notesReducer
+export default rootreducer
