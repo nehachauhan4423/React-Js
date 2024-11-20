@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
-// import {adduser,deleteuser} from "./Redux/Action/NoteAction"
 import {add , delet} from "./Redux/Action/NoteAction";
 
 function App() {
