@@ -5,9 +5,9 @@ export const add = (data) => {
     }
 }
 
-export const delet =(id) =>{
+export const deleteusers =(id) =>{
     return {
-        type : 'delete', 
+        type : 'deletedata', 
         payload : id
 
     }
