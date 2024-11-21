@@ -22,9 +22,9 @@ function Fetch() {
   }, []);
 
   return (
-    <div align="center">
+    <div align="center"style={{backgroundColor:"#F5F5F5"}}>
       <div className="container py-5">
-        <h1 className="text-center mb-4" style={{ fontFamily: "serif", fontWeight: "700" }}>
+        <h1 className="text-center mb-4" style={{ fontFamily: "serif", fontWeight: "700",paddingTop:"30px"}}>
           Products Calling For Fetch Method
         </h1>
         <div className="row">
@@ -38,8 +38,8 @@ function Fetch() {
           style={{
             height: "200px",
             objectFit: "cover",
-            borderTopLeftRadius: "1rem", // Adjust to match card's radius
-            borderTopRightRadius: "1rem", // Adjust to match card's radius
+            borderTopLeftRadius: "1rem",
+            borderTopRightRadius: "1rem",
           }}
         />
         <div className="card-1-body">
@@ -55,8 +55,8 @@ function Fetch() {
           </p>
           <p className="card-1-text fw-bold">Price: ${val.price}</p>
          <div className="d-flex">
-         <p>Rating: {val.rating}⭐</p>
-         <p className="justify-content-end align-items-end">Discount: {val.discountPercentage}%</p>
+         <p className="text-start">Rating: {val.rating}⭐</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <p className="justify-content-end text-end">Discount: {val.discountPercentage}%</p>
          </div>
         </div>
       </div>
