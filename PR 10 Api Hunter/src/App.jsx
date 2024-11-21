@@ -22,9 +22,9 @@ function App() {
   }, []);
 
   return (
-    <div align="center">
+    <div align="center" style={{backgroundColor:"whitsmoke"}}>
     <div className="container">
-      <h1 className="text-center mb-5" style={{fontFamily:"serif",padding:"15px"}}>Delicious  Recipes</h1>
+      <h1 className="text-center mb-5" style={{fontFamily:"serif",paddingTop:"25px",fontweight:"900"}}>Delicious  Recipes</h1>
       <div className="row">
         {recipes.map((val) => (
           <div className="col-md-4 mb-4" key={val.id}>
