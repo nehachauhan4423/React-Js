@@ -7,7 +7,7 @@ function Method() {
   const [recipes, setRecipes] = useState([]);
   const [setError] = useState("");
 
-  const fetchRecipes = async () => {
+  const getRecipes = async () => {
     try {
       const response = await Axios("https://dummyjson.com/recipes");
       setRecipes(response.data.recipes || []); 
@@ -18,7 +18,7 @@ function Method() {
   };
 
   useEffect(() => {
-    fetchRecipes();
+    getRecipes();
   }, []);
 
   return (

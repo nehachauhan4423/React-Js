@@ -6,7 +6,7 @@ function Fetch() {
   const [products, setProducts] = useState([]);
   const [setError] = useState("");
 
-  const fetchProducts = async () => {
+  const getProducts = async () => {
     try {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
@@ -18,7 +18,7 @@ function Fetch() {
   };
 
   useEffect(() => {
-    fetchProducts();
+    getProducts();
   }, []);
 
   return (
