@@ -1,6 +1,7 @@
+//slow error
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { DeleteUser, Status } from "../Redux/Action/CRudAction";
 
 const View = () => {
@@ -23,15 +24,16 @@ const View = () => {
     }
 
     const filteredUsers = users
-        .filter(user => user.name.toLowerCase().includes(searchTern.toLowerCase()) &&
+        .filter((user) => 
+            user.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
             (filterStatus === "all" || (filterStatus === "active" ? user.status : !user.status))
         )
         .sort((a,b)=> {
             if (sortOrder === "asc") {
-                return a.name.locale.Compare(b.name);
+                return a.name.localeCompare(b.name);
             }
             else{
-                return b.name.locale.Compare(a.name);
+                return b.name.localeCompare(a.name);
             }
         });
         console.log(searchTern);
@@ -68,11 +70,25 @@ const View = () => {
                 </thead>
                 <tbody>
                     {
-                      //complate this code 
+                      filteredUsers.map((u,i)=>(
+                        <tr key={u.id}>
+                            <td>{i+1}</td>
+                            <td>{u.name}</td>
+                            <td>{u.phone}</td>
+                            <td>{u.status ? "Active" : "DeActive"}</td>
+                            <td>
+                                <button onClick={()=>deleteUser(u.id)}>Delete</button>
+                                <button onClick={()=>navigate(`/edit`,{state:u.status})}>Edit</button>
+                                <button onClick={()=>UserStatus(u.id,u.status)}>
+                                    {u.status ? "Active" : "DeActive"}
+                                </button>
+                            </td>
+                        </tr>
+                      ))
                     }
                 </tbody>
             </table>
-
+                <Link to={`/add`}>Add</Link>
         </div>
     )
 
