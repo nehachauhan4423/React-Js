@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import crudReduce from "./CrudReducer";
+import crudReducer from "./CrudReducer";
 
-const mainReducers = combineReducers({
-    crudReduce
+const mainReducer = combineReducers({
+    crud : crudReducer
 })
 
-export default mainReducers
+export default mainReducer

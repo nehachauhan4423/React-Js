@@ -1,16 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-rout-dom";
-// import {  } from "./Pages/View";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import View from "./Pages/View"
+import Add from "./Pages/Add"
+import Edit from "./Pages/Edit"
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+   <>
+    <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<View />} />
-          <Route path="/add" element={<Add />} /> */}
+          <Route path="/" element={<View/>}/>
+          <Route path="/add" element={<Add/>}/>
+          <Route path="/edit" element={<Edit/>}/>
         </Routes>
-      </BrowserRouter>
-    </>
+    </BrowserRouter>
+   </>
   )
 }
 

@@ -1,13 +1,27 @@
-export const addUser = (addData) => {
+export const AddUser = (data) => {
     return{
-        type : 'add_user',
-        payload : addData
+        type : 'add',
+        payload : data
     }
 }
 
-export const deleteUser = (deleteData) => {
+export const DeleteUser = (id) => {
     return{
-        type : 'delete_user',
-        payload : deleteData
+        type :'delete',
+        payload : id
+    }
+}
+
+export const UpdateUser = (data) => {
+    return{
+        type : 'update',
+        payload : data
+    }
+}
+
+export const Status = (id) => {
+    return{
+        type :'status',
+        payload : id
     }
 }
