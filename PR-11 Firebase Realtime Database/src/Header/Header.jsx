@@ -243,9 +243,9 @@ function Header() {
 
                             <div className="col-3 col-xl-3 d-xl-flex d-sm-none justify-content-end">
                                 <div className="contact">
-                                    <ul className='d-flex justify-content-end'>
+                                    <ul className='d-flex justify-content-end' style={{listStyle:"none"}}>
                                         <li>
-                                            <button type="button" className="btn" style={{ backgroundColor: "#64b496" }} data-bs-toggle="modal" data-bs-target="#exampleModal"> <i className="fa-solid fa-phone text-light p-0" />
+                                            <button type="button" className="btn" style={{ backgroundColor: "#64b496",color:"white",fontWeight:"500" }} data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa-solid fa-phone text-light p-0" />&nbsp;&nbsp;Contact 
                                             </button>
                                             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                                 <div className="modal-dialog">
