@@ -1,7 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import "./Header.css";
+import { getDatabase, ref, set } from "Firebase/database";
+import { app } from "../../Firebase.js";
+import { useState } from 'react';
 function Header() {
+
+
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [message, setMessage] = useState("")
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const db = getDatabase(app)
+        let id = Math.floor(Math.random() * 10000);
+        set(ref(db, `users/${id}`), {
+            name: name,
+            phone: phone,
+            message: message
+        })
+        alert("RECORD ADD")
+        setName("")
+        setPhone("")
+        setMessage("")
+        document.getElementById("closeModal").click();
+    }
+
+
     return (
         <div className="headerjsx">
 
@@ -73,7 +100,7 @@ function Header() {
                         <div className="menubar-main d-flex">
                             <div className="col-2">
                                 <div className="toggle-1">
-                                  <i class="fa-solid fa-bars"></i>
+                                    <i class="fa-solid fa-bars"></i>
                                 </div>
                             </div>
 
@@ -98,7 +125,7 @@ function Header() {
                                                             <li><a class="dropdown-item" href="#">Shop Left Sidebar</a></li>
                                                             <li><a class="dropdown-item" href="#">Shop Right Sidebar</a></li>
                                                             <li><a class="dropdown-item" href="#">Shop Full Width</a></li>
-                                                            
+
                                                         </ul>
                                                     </li>
 
@@ -110,7 +137,7 @@ function Header() {
                                                             <li><a class="dropdown-item" href="#">Products Left Sidebar</a></li>
                                                             <li><a class="dropdown-item" href="#">Products Right Sidebar</a></li>
                                                             <li><a class="dropdown-item" href="#">Products Full Width</a></li>
-                                                            
+
                                                         </ul>
                                                     </li>
 
@@ -162,12 +189,101 @@ function Header() {
                                 </div>
                             </div>
 
-                            <div className="col-3">
-                                <div className="call d-flex justify-content-end">
-                                    <span><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+123 ( 456 ) ( 7890 )</span>
-                                    
+                            {/* <div className="col-3">
+                                <div className="call d-flex justify-content-end">    
+                                            <ul style={{listStyle:"none"}}>
+                                        <li>
+
+                                            <a href="#">
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style={{backgroundColor:"#64b496",border:"0"}}><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact</button>
+                                                
+
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <form onSubmit={handleSubmit}>
+                                                            <div className="modal-body">
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="recipient-name" className="col-form-label">Name:</label>
+                                                                    <input type="text" className="form-control" id="recipient-name" value={name} onChange={(e) => setName(e.target.value)} required />
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="recipient-phone" className="col-form-label">Phone:</label>
+                                                                    <input type="text" className="form-control" id="recipient-phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                                                </div>
+                                                                
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="message-text" className="col-form-label">Message:</label>
+                                                                    <textarea className="form-control" id="message-text" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div className="modal-footer">
+                                                                <button type="button" className="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" className="btn btn-primary">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </a>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> */}
+
+
+                            <div className="col-3 col-xl-3 d-xl-flex d-sm-none justify-content-end">
+                                <div className="contact">
+                                    <ul className='d-flex justify-content-end'>
+                                        <li>
+                                            <button type="button" className="btn" style={{ backgroundColor: "#64b496" }} data-bs-toggle="modal" data-bs-target="#exampleModal"> <i className="fa-solid fa-phone text-light p-0" />
+                                            </button>
+                                            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                                <div className="modal-dialog">
+                                                    <div className="modal-content">
+                                                        <div className="modal-header">
+                                                            <h1 className="modal-title fs-5" id="exampleModalLabel">New Message</h1>
+                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                                                        </div>
+                                                        <form onSubmit={handleSubmit}>
+                                                            <div className="modal-body">
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="recipient-name" className="col-form-label">Name:</label>
+                                                                    <input type="text" className="form-control" id="recipient-name" value={name} onChange={(e) => setName(e.target.value)} required />
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="recipient-phone" className="col-form-label">Phone:</label>
+                                                                    <input type="text" className="form-control" id="recipient-phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <label htmlFor="message-text" className="col-form-label">Message:</label>
+                                                                    <textarea className="form-control" id="message-text" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div className="modal-footer">
+                                                                <button type="button" className="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" className="btn btn-primary">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+
+
 
                         </div>
                     </div>
