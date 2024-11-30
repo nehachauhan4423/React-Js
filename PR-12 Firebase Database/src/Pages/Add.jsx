@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Add = () => {
   const [list, setList] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch([]);
 
   // Handle form submission
   const handleSubmit = (e) => {
