@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
-import { addTodo} from "../Redux/Actions/TodoActions"; // Added missing imports
+import { addTodo, ViewTodo} from "../Redux/Actions/TodoActions"; // Added missing imports
 import { useDispatch, useSelector } from "react-redux";
 
 const Add = () => {
   const [list, setList] = useState("");
-  const dispatch = useDispatch([]);
+  const dispatch = useDispatch();
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -15,7 +15,6 @@ const Add = () => {
       alert("Please enter a todo");
       return;
     }
-
     let obj = { list };
     dispatch(addTodo(obj));
     setList(""); // Clear input after submission
@@ -23,7 +22,7 @@ const Add = () => {
   };
 
   // Get all todos from the Redux store
-  const AllTodos = useSelector(state => state.todo.todoList || []); // Default to an empty array if no todos are found
+  const AllTodos = useSelector(state => state.todo?.todoList || []); // Default to an empty array if no todos are found
 
   // Fetch todos on component mount
   useEffect(() => {
