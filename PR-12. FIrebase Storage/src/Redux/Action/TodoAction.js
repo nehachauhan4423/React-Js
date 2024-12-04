@@ -1,58 +1,59 @@
+import { addDoc, collection, deleteDoc, doc, getDocs, getFirestore } from "firebase/firestore"
 import { app } from "../../firebase"
-import { addDoc, collection, deleteDoc, doc, getDoc, getFirestore } from "firebase/firestore";
-
 const db = getFirestore(app)
-export const viewUser = () => {
+
+export const view = () => {
     return async (dispatch) => {
-        try {
-            const data = collection(db, "users")
-            const userList = await getDoc(data)
+        try{
+            const data = collection(db , "users")
+            const userList = await getDocs(data)
             const record = userList.docs.map(doc => ({
-                id: doc.id,
+                id : doc.id,
                 ...doc.data()
             }))
             dispatch({
-                try: "viewuser",
-                payload: record
+                type : "view",
+                payload : record
             })
-        } catch (error) {
+        }
+        catch(err){
             dispatch({
-                type: "viewuser",
-                payload: error
+                type : "viewuse",
+                payload : err
             })
         }
     }
 }
 
-
 export const addUser = (user) => {
     return async (dispatch) => {
-        try {
-            let addrecord = await addDoc(collection(db, "users"), {
-                name: user.name
-            })
-            dispatch({
-                type: "addrecord",
-            })
+        try{
+           let add = await addDoc(collection(db,"users"),{
+                name : user.name,
+
+           }) 
+           dispatch({
+                type : "add"
+           })
         }
-        catch (err) {
+        catch(err){
             console.log(err);
             return false
         }
     }
 }
 
-
-export const deleteUser = (id) => {
+export const deleteUse = (id) => {
     return async (dispatch) => {
-        try {
-            let deleteData = await doc(db, "users", id)
-            await deleteDoc(deleteData)
-            dispatch({
-                type: "deleteuser",
-                payload: id
-            })
-        } catch (error) {
+        try{
+           let deleteData = await doc(db,"users",id)
+           await deleteDoc(deleteData)
+           dispatch({
+            type : 'delete',
+            payload : id
+           })
+        }
+        catch(err){
             console.log(err);
             return false
         }

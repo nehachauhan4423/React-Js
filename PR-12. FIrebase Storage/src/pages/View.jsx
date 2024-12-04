@@ -1,57 +1,102 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { IoAddCircle } from "react-icons/io5";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { MdAssignmentAdd } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import { deleteUser, viewUser } from '../Redux/Action/TodoAction';
+import { deleteUse, view } from "../Redux/Action/TodoAction";
 
 const View = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(viewUser());
+        dispatch(view());
     }, [dispatch]);
 
-    // Safeguard to ensure 'users' is always an array
-    const users = useSelector(state =>  state.crud.user);
+    const users = useSelector((state) => state.crud.user);
 
     const deleteRecord = (id) => {
-        dispatch(deleteUser(id));
-        alert("Record deleted Successfully...");
+        dispatch(deleteUse(id));
+        alert("Record deleted successfully.");
     };
 
     return (
-        <div align="center">
-            <header className='d-flex justify-content-between' style={{ backgroundColor: "#444444", padding: "10px", maxWidth: "924.66px", marginTop: "20px" }}>
-                <div className="header align-items-center">
-                    <div className="logo">
-                        <h2 style={{ color: "#fff", fontSize: "30px" }}>Todo List</h2>
-                    </div>
-                </div>
-                <div>
-                    <Link to={`/`} className="btn justify-content-end" style={{ color: "#fff" }}>
-                        <IoAddCircle style={{ fontSize: "40px" }} />
-                    </Link>
-                </div>
+        <div
+            className="d-flex flex-column align-items-center py-4"
+            style={{
+                minHeight: "100vh",
+                backgroundColor: "#e8eff4", // Light blue-gray background
+                color: "#2a2d34", // Dark charcoal text
+            }}
+        >
+            {/* Header */}
+            <header
+                className="d-flex"
+                style={{
+                  
+                    color: "darkblue", // Very light gray text
+                    fontFamily: "sans-serif",
+                }}
+            >
+                <h2 className="mb-3" align="center" style={{ fontSize: "40px",fontWeight:"900",}}>
+                    TODO LIST
+                </h2>
             </header>
 
-            <div className="container">
-                <div className="row mt-5 shadow rounded" style={{ backgroundColor: "rgb(244 246 246)", maxWidth: "924.66px", border: "0px solid #444444" }}>
-                    {/* Now safely calling map */}
-                    {users.map((val) => (
-                        <div className="main-box d-flex align-items-center justify-content-around text-start p-3 border" key={val.id}>
-                            <div className="col-8">
-                                <div className="text-box" style={{ fontSize: "18px" }}>{val.name}</div>
-                            </div>
-                            <div className="col-4 d-flex justify-content-end">
-                                <button onClick={() => deleteRecord(val.id)} className='btn' style={{ fontSize: "18px" }}>
-                                    <MdDelete style={{ fontSize: "25px" }} />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            {/* User List */}
+            <div
+                className="container shadow-sm p-4 rounded"
+                style={{
+                    maxWidth: "900px",
+                    backgroundColor: "#f0f4f8", // Light cool gray
+                    border: "1px solid #d3dce6", // Soft gray border
+                }}
+            >
+                {users.map((val) => (
+                    <div
+                        className="d-flex align-items-center justify-content-between border-bottom py-3"
+                        key={val.id}
+                        style={{
+                            borderColor: "#cbd2da", // Muted border color
+                        }}
+                    >
+                        <span className="fs-5" style={{ color: "#2a2d34" }}>
+                            {val.name}
+                        </span>
+                        <button
+                            onClick={() => deleteRecord(val.id)}
+                            className="btn"
+                            style={{
+                                backgroundColor: "#e94e77", // Soft red button
+                                color: "#fff",
+                                fontSize: "16px",
+                                border: "none",
+                                borderRadius: "4px",
+                            }}
+                        >
+                            <MdDelete size={24} />
+                        </button>
+                    </div>
+                ))}
+            </div>
+
+            {/* Add Button */}
+            <div className="mt-4">
+                <Link
+                    to="/add"
+                    className="btn d-flex align-items-center justify-content-center"
+                    style={{
+                        width: "60px",
+                        height: "60px",
+                        backgroundColor: "#3e4b5b", // Muted navy button
+                        color: "#f3f6f9", // Very light text
+                        fontSize: "24px",
+                        border: "none",
+                        borderRadius: "50%",
+                    }}
+                >
+                    <MdAssignmentAdd />
+                </Link>
             </div>
         </div>
     );
