@@ -15,7 +15,7 @@ const Login = () => {
         <div className="login-container">
       <div className="login-box">
         <button className="login-button" onClick={handleSubmit}>
-          Sign In with Google
+          Sign In
         </button>
       </div>
     </div>
