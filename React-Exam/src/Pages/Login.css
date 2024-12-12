@@ -24,7 +24,8 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 450px;
+    max-width: 450px; /* Sets the max width of the card */
+    height: 400px; /* Fixed height for the card */
     padding: 20px;
     box-sizing: border-box;
 }
