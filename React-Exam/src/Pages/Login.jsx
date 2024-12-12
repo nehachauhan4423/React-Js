@@ -20,12 +20,14 @@ function SignIn({ userList, setIsLoggedIn }) {
 
   return (
     <div>
+      <div className="login-card">
       <h2>Sign In</h2>
       <div className="card">
       <input type="text" placeholder="Username" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)}/>
       <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}/>
       <button onClick={handleLogin}>Sign In</button>
       <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+      </div>
       </div>
     </div>
   );
