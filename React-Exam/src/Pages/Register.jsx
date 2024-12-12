@@ -22,13 +22,15 @@ function SignUp({ setUserList }) {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <input type="text" placeholder="Username" value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
-      <input type="email" placeholder="Email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} style={{width:"97%",padding:"12px",margin:"15px,0",border: "1px solid #80deea",borderRadius: "5px",    transition:" border-color 0.3s, box-shadow 0.3s",fontSize:"16px"}}/>
-      <input type="password" placeholder="Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
-      <button onClick={handleCreateAccount}>Sign Up</button>
-    </div>
+    <>
+    <h2>SignIn</h2>
+      <div>
+    <input type="text" placeholder="Username" value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
+    <input type="email" placeholder="Email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} style={{width:"97%",padding:"12px",margin:"15px,0",border: "1px solid #80deea",borderRadius: "5px",    transition:" border-color 0.3s, box-shadow 0.3s",fontSize:"16px"}}/>
+    <input type="password" placeholder="Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
+    <button onClick={handleCreateAccount}>Sign Up</button>
+  </div>
+    </>
   );
 }
 
