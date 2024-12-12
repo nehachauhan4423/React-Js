@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    background-color: #e8f6f3; /* Soft teal background */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    color: #1b4965; /* Rich deep blue */
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Card Styling */
+.card {
+    max-width: 400px;
+    padding: 30px;
+    background-color: #ffffff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(27, 73, 101, 0.2); /* Soft blue shadow */
+    text-align: center;
+    width: 100%; /* Ensures responsiveness */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+}
+
+/* Input Fields */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #90e0ef; /* Light blue border */
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 136, 169, 0.1); /* Soft blue inset shadow */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #0077b6; /* Brighter blue on focus */
+    box-shadow: 0 0 5px rgba(0, 119, 182, 0.3); /* Subtle focus glow */
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    background-color: #ff6f61; /* Coral */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #e63946; /* Richer coral red */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Paragraph Styling */
+p {
+    color: #1b4965; /* Rich deep blue */
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+/* Links Styling */
+a {
+    color: #0077b6; /* Brighter blue for links */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #023e8a; /* Deep rich blue on hover */
+    text-decoration: underline;
+}
