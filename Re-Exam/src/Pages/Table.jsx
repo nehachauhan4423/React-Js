@@ -1,7 +1,6 @@
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
 import './Table.css';
 
 const Table = () => {
@@ -9,11 +8,11 @@ const Table = () => {
     const [status, setStatus] = useState("");
     const [search, setSearch] = useState("");
     const [sort, setSort] = useState("");
-    const [filterData, setFilterData] = useState([]);
+    const [filterData, setfilterData] = useState([]);
     const [mdelete, setMdelete] = useState([]);
 
-    const allUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const [record, setRecord] = useState(allUsers);
+    const allusers = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : [];
+    const [record, setRecord] = useState(allusers);
 
     const userDelete = (id) => {
         let updatedRecords = record.filter(val => val.id !== id);
@@ -23,7 +22,7 @@ const Table = () => {
     };
 
     const changeStatus = (id, st) => {
-        const updatedRecords = record.map(val => {
+        const updatedRecords = record.map((val) => {
             if (val.id === id) {
                 val.status = st === "active" ? "deactive" : "active";
             }
@@ -35,110 +34,94 @@ const Table = () => {
     };
 
     useEffect(() => {
-        let filtered = [...allUsers];
+        let filtered = [...allusers];
 
-        if (status !== "") {
+        if (status) {
             filtered = filtered.filter(val => val.status === status);
         }
 
-        if (search !== "") {
-            filtered = filtered.filter(value => value.name.toLowerCase().includes(search.toLowerCase()));
+        if (search) {
+            filtered = filtered.filter(val => val.name.toLowerCase().includes(search.toLowerCase()));
         }
 
-        if (sort !== "") {
+        if (sort) {
             filtered.sort((a, b) => {
-                return sort === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+                if (sort === "asc") return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+                if (sort === "dsc") return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
+                return 0;
             });
         }
 
-        setFilterData(filtered);
+        setfilterData(filtered);
     }, [status, search, sort, record]);
 
     const reset = () => {
-        setFilterData(allUsers);
+        setfilterData(allusers);
         setStatus("");
         setSearch("");
         setSort("");
     };
 
-    const multipleDeleteRecord = (id, checked) => {
-        let old = [...mdelete];
-        if (checked) {
-            old.push(id);
-        } else {
-            old = old.filter(val => val !== id);
-        }
-        setMdelete(old);
-    };
-
-    const multipleDelete = () => {
-        let updatedRecords = record.filter(val => !mdelete.includes(val.id));
-        localStorage.setItem("users", JSON.stringify(updatedRecords));
-        setRecord(updatedRecords);
-        alert("Records Deleted");
-        setMdelete([]);
-    };
-
     return (
-        <div className="table-select">
-            <h2>View Users</h2>
-
-            <div className="select-setion">
-                <select onChange={(e) => setStatus(e.target.value)} value={status}>
-                    <option value="">----Select Status---</option>
+        <div className="table-container">
+            <h2 className="table-title">View Users</h2>
+            <div className="filter-section">
+                <select onChange={(e) => setStatus(e.target.value)} value={status} className="filter-dropdown">
+                    <option value="">----Select Status----</option>
                     <option value="active">Active</option>
                     <option value="deactive">Deactive</option>
                 </select>
-
-                <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" />
-
-                <select onChange={(e) => setSort(e.target.value)} value={sort}>
-                    <option value="">----Select Sort---</option>
+                <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} placeholder="Search Here" className="filter-search" />
+                <select onChange={(e) => setSort(e.target.value)} value={sort} className="filter-dropdown">
+                    <option value="">----Select Sort----</option>
                     <option value="asc">A-Z</option>
                     <option value="dsc">Z-A</option>
                 </select>
-
-                <button onClick={reset}>Reset</button>
+                <button onClick={reset} className="reset-button">
+                    Reset
+                </button>
             </div>
 
-            <table className="table-main">
+            <table className="user-table">
                 <thead>
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Gender</th>
-                        <th>Course</th>
+                        <th>Cities</th>
+                        <th>Designation</th>
+                        <th>Salary</th>
                         <th>Date</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {filterData.map((u, i) => {
-                        const { id, name, email, gender, course, date, status } = u;
+                        const { id, name, email, cities, date, status, designation, salary } = u;
                         return (
                             <tr key={i}>
                                 <td>{id}</td>
                                 <td>{name}</td>
                                 <td>{email}</td>
-                                <td>{gender}</td>
-                                <td>{course}</td>
+                                <td>{cities ? cities.join(", ") : "N/A"}</td>
+                                <td>{designation}</td>
+                                <td>{salary}</td>
                                 <td>{date}</td>
                                 <td>
                                     <button
-                                        className={status === "active" ? "active" : "deactive"}
                                         onClick={() => changeStatus(id, status)}
+                                        className={`status-button ${status === "active" ? "active" : "deactive"}`}
                                     >
                                         {status}
                                     </button>
                                 </td>
-                                <td>
-                                    <span onClick={() => userDelete(id)}>
-                                        <MdDelete style={{ color: "teal", fontSize: "20px" }} />
-                                    </span>&nbsp;&nbsp;&nbsp;
-                                    <span onClick={() => navigate(`/edit`, { state: u })}>
-                                        <FaEdit style={{ color: "darkblue", fontSize: "20px" }} />
+                                <td className="actions">
+                                    <span onClick={() => userDelete(id)} className="action-icon delete">
+                                        <i className="fa fa-trash"></i> Delete
+                                    </span>
+                                    <span onClick={() => navigate(`/edit`, { state: u })} className="action-icon edit">
+                                        <i className="fa fa-edit"></i> Edit
                                     </span>
                                 </td>
                             </tr>
@@ -147,11 +130,14 @@ const Table = () => {
                 </tbody>
             </table>
 
-            <div className="table-add">
-                <Link to={`/add`}>Add</Link>
+            <div className="add-user-button">
+                <Link to={`/add`} className="add-button">
+                    Add New User
+                </Link>
             </div>
         </div>
     );
 };
 
 export default Table;
+

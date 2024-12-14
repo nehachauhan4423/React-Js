@@ -1,0 +1,170 @@
+/* Table container */
+.table-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff; /* Light background for a clean look */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table title */
+.table-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b3a4d; /* Darker shade of blue-gray for the title */
+}
+
+/* Filter section (dropdowns, search, reset button) */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.filter-dropdown, .filter-search, .reset-button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fafafa; /* Light background for input fields */
+    transition: border-color 0.3s ease;
+}
+
+.filter-dropdown:focus, .filter-search:focus, .reset-button:focus {
+    border-color: #2e4b88; /* Subtle blue focus color */
+}
+
+.reset-button {
+    background-color: #4caf50; /* Green background for reset button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Table styles */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #333; /* Dark text for readability */
+}
+
+.user-table th {
+    background-color: #f7f7f7; /* Light gray header */
+    color: #2e4b88; /* Matching blue for the header */
+}
+
+/* Hover effect for rows */
+.user-table tr:hover {
+    background-color: #f1f1f1; /* Light gray hover effect */
+    cursor: pointer;
+}
+
+/* Status button (active/deactive) */
+.status-button {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.status-button.active {
+    background-color: #4caf50; /* Green for active */
+    color: white;
+}
+
+.status-button.deactive {
+    background-color: #e74c3c; /* Red for deactive */
+    color: white;
+}
+
+.status-button:hover {
+    opacity: 0.8;
+}
+
+/* Action icons (Delete/Edit) */
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.action-icon {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 15px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.action-icon.delete {
+    color: #16a085; /* Teal for delete */
+}
+
+.action-icon.delete:hover {
+    color: #1abc9c; /* Lighter teal on hover */
+    transform: scale(1.1);
+}
+
+.action-icon.edit {
+    color: #2980b9; /* Blue for edit */
+}
+
+.action-icon.edit:hover {
+    color: #3498db; /* Lighter blue on hover */
+    transform: scale(1.1);
+}
+
+/* Add new user button */
+.add-user-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.add-button {
+    padding: 14px 25px;
+    background-color: #2e4b88; /* Strong blue for action button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: #1c3a63; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+/* Add some responsive design */
+@media (max-width: 768px) {
+    .filter-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-table th, .user-table td {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+}

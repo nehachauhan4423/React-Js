@@ -1,0 +1,135 @@
+/* Main container styling */
+.react-router-form {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form header */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-header h5 {
+    color: #2e4b88;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-button a {
+    padding: 8px 15px;
+    background-color: #2e4b88;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-button a:hover {
+    background-color: #1c3a63;
+}
+
+/* Form fields container */
+.form-con {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label and input field container styling */
+.form-name-con, .form-date-con, .form-select-section,
+.form-designation, .form-salary, .form-city {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Form inputs styling */
+.form-name-con input,
+.form-date-con input,
+.form-select-section select,
+.form-designation input,
+.form-salary input,
+.form-city input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-name-con input:focus,
+.form-date-con input:focus,
+.form-select-section select:focus,
+.form-designation input:focus,
+.form-salary input:focus,
+.form-city input:focus {
+    border-color: #2e4b88;
+}
+
+/* Submit button styling */
+.form-submit input[type="submit"] {
+    padding: 12px 25px;
+    background-color: #2e4b88;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit input[type="submit"]:hover {
+    background-color: #1c3a63;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .react-router-form {
+        width: 90%;
+    }
+}
+
+/* Additional styling for new fields */
+.form-select-section select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-select-section select:focus {
+    border-color: #2e4b88;
+}
+
+/* City input field styling */
+.form-city input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-city input:focus {
+    border-color: #2e4b88;
+}
+
+/* Spacing between sections */
+.form-section {
+    margin-bottom: 20px;
+}
+
+/* Form label font styling */
+.form-con label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e4b88;
+}
