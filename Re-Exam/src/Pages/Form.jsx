@@ -20,10 +20,10 @@ const Form = () => {
         e.preventDefault();
 
         // Check if all required fields are filled out
-        // if (!name || !email || !password || !date || !status || !designation || !salary || !city) {
-        //     alert("Please fill out all the fields.");
-        //     return;
-        // }
+        if (!name || !email || !password || !date || !status || !designation || !salary || !city) {
+            alert("Please fill all fields.");
+            return;
+        }
 
         // Create user object
         let obj = {
