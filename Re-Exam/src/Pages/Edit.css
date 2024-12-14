@@ -10,6 +10,9 @@ form {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Set max-width for large screens */
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 /* Heading Styling */
@@ -103,12 +106,10 @@ h5 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
     form {
         padding: 20px;
+        width: 90%;
+        max-width: 100%; /* Full width on smaller screens */
     }
 
     .btn-primary, .btn-danger {
