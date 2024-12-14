@@ -1,4 +1,3 @@
-
 // import { useState, useEffect } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 // import './Table.css';
@@ -8,10 +7,9 @@
 //     const [status, setStatus] = useState("");
 //     const [search, setSearch] = useState("");
 //     const [sort, setSort] = useState("");
-//     const [filterData, setfilterData] = useState([]);
-//     const [mdelete, setMdelete] = useState([]);
-
-//     const allusers = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : [];
+//     const [filterData, setFilterData] = useState([]);
+    
+//     const allusers = JSON.parse(localStorage.getItem("users")) || [];
 //     const [record, setRecord] = useState(allusers);
 
 //     const userDelete = (id) => {
@@ -52,11 +50,11 @@
 //             });
 //         }
 
-//         setfilterData(filtered);
+//         setFilterData(filtered);
 //     }, [status, search, sort, record]);
 
 //     const reset = () => {
-//         setfilterData(allusers);
+//         setFilterData(allusers);
 //         setStatus("");
 //         setSearch("");
 //         setSort("");
@@ -97,14 +95,14 @@
 //                     </tr>
 //                 </thead>
 //                 <tbody>
-//                     {filterData.map((u, i) => {
+//                     {filterData.map((u) => {
 //                         const { id, name, email, cities, date, status, designation, salary } = u;
 //                         return (
-//                             <tr key={i}>
+//                             <tr key={id}>
 //                                 <td>{id}</td>
 //                                 <td>{name}</td>
 //                                 <td>{email}</td>
-//                                 <td>{cities ? cities.join(", ") : "Surat"}</td>
+//                                 <td>{cities ? cities.join(", ") : "surat"}</td>
 //                                 <td>{designation}</td>
 //                                 <td>{salary}</td>
 //                                 <td>{date}</td>
@@ -140,8 +138,6 @@
 // };
 
 // export default Table;
-
-
 
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -247,7 +243,7 @@ const Table = () => {
                                 <td>{id}</td>
                                 <td>{name}</td>
                                 <td>{email}</td>
-                                <td>{cities ? cities.join(", ") : "surat"}</td>
+                                <td>{Array.isArray(cities) ? cities.join(", ") : "Surat"}</td>
                                 <td>{designation}</td>
                                 <td>{salary}</td>
                                 <td>{date}</td>
