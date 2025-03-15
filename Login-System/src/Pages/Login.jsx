@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
+import './login.css';
 
 const Login = () => {
 
@@ -35,7 +36,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="mainclass">
             <h2>Login User</h2>
             <form onSubmit={handleSubmit}>
                 <table border={1} align="center">

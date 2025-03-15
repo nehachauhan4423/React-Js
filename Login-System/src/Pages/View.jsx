@@ -1,107 +1,75 @@
-// import { useEffect } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-
-// function View(){
-//     const navigate = useNavigate()
-
-//     useEffect(()=> {
-//         let userLogin = JSON.parse(localStorage.getItem("checkUser"));
-//         if (!userLogin) {
-//             navigate("/")
-//         }
-//     })
-
-//     return(
-//       <div align="center">
-//         <h1>View User</h1>
-//         <table border={1}>
-//             <thead>
-//                 <tr>
-//                     <th>SrNo</th>
-//                     <th>Name</th>
-//                     <th>Phone</th>
-//                     <th>Action</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {[].map((user,index)=> {
-//                     const {id,name,phone} = user;
-//                     return(
-//                         <tr key={id}>
-//                             <td>{index + 1}</td>
-//                             <td>{name}</td>
-//                             <td>{phone}</td>
-//                             <td>
-//                                 <button onClick={()=>navigate("/edit",{state:user})}>Edit</button>
-//                             </td>
-//                         </tr>
-//                     )
-//                 })}
-//             </tbody>
-//         </table>
-//         <Link to={`/add`}>Add</Link>
-//       </div>
-//     )
-// }
-// export default View;
-
-
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./view.css"; 
 
-const View = () => {
-    const [users, setUsers] = useState([]);
+function View() {
     const navigate = useNavigate();
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        // Check if user is logged in
-        const userLogin = JSON.parse(localStorage.getItem("checkUser"));
+        let userLogin = JSON.parse(localStorage.getItem("checkUser"));
         if (!userLogin) {
             navigate("/");
         }
+        const storeUser = JSON.parse(localStorage.getItem("users")) || [];
+        setUsers(storeUser);
+    }, []);
 
-        // Retrieve users from localStorage
-        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-        setUsers(storedUsers);
-    }, [navigate]);
-
-    const handleLogout = () => {
-        localStorage.removeItem("checkUser");
-        alert("User Logged Out");
-        navigate("/");
+    const Delete = (id) => {
+        const updatedUsers = users.filter(user => user.id !== id);
+        setUsers(updatedUsers);
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
     };
 
     return (
-        <div align="center">
-            <h2>User List</h2>
-            {users.length > 0 ? (
-                <table border={1}>
+     <body>
+        
+        <div className="view-container">
+            <h1>View Users</h1>
+            
+            <div className="table-container">
+                <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Sr No</th>
                             <th>Name</th>
                             <th>Phone</th>
-                            <th>City</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>{user.name}</td>
-                                <td>{user.phone}</td>
-                                <td>{user.city}</td>
+                        {users.length > 0 ? (
+                            users.map((user, index) => {
+                                const { id, name, phone } = user;
+                                return (
+                                    <tr key={id}>
+                                        <td>{index + 1}</td>
+                                        <td>{name}</td>
+                                        <td>{phone}</td>
+                                        <td>
+                                            <button 
+                                                onClick={() => Delete(id)}
+                                                className="delete-btn"
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        ) : (
+                            <tr>
+                                <td colSpan="4">No users found</td>
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </table>
-            ) : (
-                <p>No records found</p>
-            )}
-            <Link to="/add">Add User</Link>
-            <button onClick={handleLogout}>Logout</button>
+            </div>
+
+            <Link to="/add" className="add-btn">Add New User</Link>
         </div>
+     </body>
     );
-};
+}
 
 export default View;

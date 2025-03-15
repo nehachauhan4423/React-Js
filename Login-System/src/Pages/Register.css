@@ -1,0 +1,161 @@
+/* General Styling */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #F8F4E1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Centering Container with Bigger Width */
+.register-container {
+    max-width: 600px; /* Increased width */
+    width: 90%;
+    margin: auto;
+    background: white;
+    padding: 30px; /* Increased padding for a better look */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    color: #543310;
+    font-size: 24px; /* Slightly bigger heading */
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px; /* Increased padding for better spacing */
+    color: #543310;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #543310;
+    outline: none;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #543310;
+    color: #F8F4E1;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 12px;
+}
+
+input[type="submit"]:hover {
+    background-color: #40250D;
+}
+
+/* Login Link */
+.link-container {
+    text-align: right;
+    margin-top: 14px;
+}
+
+.link-container a {
+    color: #543310;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Smooth Underline Animation */
+.link-container a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #543310;
+    transition: width 0.4s ease-in-out;
+}
+
+.link-container a:hover {
+    color: #40250D;
+}
+
+.link-container a:hover::after {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .register-container {
+        max-width: 90%;
+        padding: 25px;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    td {
+        font-size: 13px;
+    }
+
+    input {
+        font-size: 13px;
+    }
+
+    input[type="submit"] {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .link-container {
+        text-align: center;
+    }
+}

@@ -1,0 +1,126 @@
+/* General Styling */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #F8F4E1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centering Container */
+.mainclass {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    color: #543310;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px;
+    color: #543310;
+    font-size: 16px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #543310;
+    outline: none;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #543310;
+    color: #F8F4E1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #40250D;
+}
+
+/* Register Link (Left to Right) */
+.link-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.link-container a {
+    color: #543310;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Underline Animation */
+.link-container a::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #543310;
+    transition: width 0.3s ease-in-out;
+}
+
+.link-container a:hover {
+    color: #40250D;
+}
+
+.link-container a:hover::before {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    div {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

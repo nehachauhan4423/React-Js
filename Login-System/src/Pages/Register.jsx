@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import './Register.css'
 
 const Register = () => {
 
@@ -27,38 +28,63 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <h2>Register User</h2>
-            <form onSubmit={handleSubmit}>
-                <table border={1} align="center">
+      <body>
+        
+        <div className="register-container">
+        <h2>Register User</h2>
+        <form onSubmit={handleSubmit}>
+            <table>
+                <tbody>
                     <tr>
-                        <td>Name :-</td>
+                        <td>Name:</td>
                         <td>
-                            <input type="text" onChange={(e) => setName(e.target.value)} value={name} />
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
-                        <td>Email :-</td>
+                        <td>Email:</td>
                         <td>
-                            <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
-                        <td>Password :-</td>
+                        <td>Password:</td>
                         <td>
-                            <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                            <input
+                                type="password"
+                                placeholder="Enter your password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" />
+                        <td colSpan="2">
+                            <input type="submit" value="Register" />
                         </td>
                     </tr>
-                </table>
-            </form>
-            <Link to={`/`}>Login</Link>
-        </div>
+                </tbody>
+            </table>
+        </form>
+
+        {/* <div className="link-container"> */}
+            <Link to="/">Already have an account? Login</Link>
+        {/* </div> */}
+    </div>
+      </body>
     )
 }
 export default Register

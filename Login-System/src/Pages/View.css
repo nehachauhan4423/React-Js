@@ -1,0 +1,116 @@
+body {
+    background-color: #F8F4E1;
+    color: #603F26;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Centering the Table Container with a Bigger Width */
+.table-container {
+    margin: 20px auto;
+    max-width: 90%; /* Ensures it scales well on all screens */
+    width: 1000px; /* Increased width for larger screens */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    overflow-x: auto; /* Ensures responsiveness */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #603F26;
+    padding: 12px; /* More spacing for better readability */
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #553115;
+    color: #F8F4E1;
+    font-size: 18px;
+}
+
+td {
+    background-color: #fff;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #603F26;
+    color: #F8F4E1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #40250D;
+}
+
+/* Add Button */
+.add-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #603F26;
+    color: #F8F4E1;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #40250D;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .table-container {
+        max-width: 95%;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        padding: 20px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .delete-btn, .add-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-container {
+        max-width: 100%;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    th, td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .delete-btn, .add-btn {
+        font-size: 13px;
+        padding: 8px 15px;
+    }
+}
